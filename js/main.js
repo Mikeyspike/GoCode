@@ -18,11 +18,11 @@ $(document).ready(function () {
 
 function changeSize() {
     var bodyheight = $(window).height();
-    $("#editor").height(bodyheight - 101);
-    $(".ace_content").height(bodyheight - 101);
+    $("#editor").height(bodyheight - 95);
+    $(".ace_content").height(bodyheight - 95);
     $(window).resize(function () {
         var bodyheight = $(window).height();
-        $("#editor").height(bodyheight - 101);
-        $(".ace_content").height(bodyheight - 101);
+        $("#editor").height(bodyheight - 95);
+        $(".ace_content").height(bodyheight - 95);
     });
 }
