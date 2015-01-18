@@ -5,10 +5,13 @@
     float: left;
     text-align: center;
     margin: 0;
-    padding: 20px;
+    padding: 5px 10px 5px 10px;
 }
 #editor{
-    font-size: 16px;
+    font-size: 14px;
+}
+.ace_scrollbar{
+    background-color: #f00;
 }
 #bottom-buttons a{
     display: block;
