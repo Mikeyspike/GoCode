@@ -1,3 +1,16 @@
+#header{
+    background-color: #34495e;
+    border-bottom: 3px solid #2c3e50;
+    border-top: none;
+    color: #ecf0f1;
+}
+#header a{
+    text-decoration: none;
+    color: inherit;
+}
+#header a:hover{
+    color: #fff;
+}
 #header ul{
     list-style: none;
     padding-left: 0;
@@ -12,12 +25,23 @@
     font-size: 14px;
 }
 .ace_scrollbar{
-    background-color: #f00;
+    background-color: #2f3129;
+}
+#bottom-buttons{
+    background-color: #34495e;
+    border-top: 3px solid #2c3e50;
+    border-bottom: none;
+    color: #ecf0f1;
 }
 #bottom-buttons a{
     display: block;
     text-decoration: none;
     padding: 10px 0 10px 0;
+    text-decoration: none;
+    color: inherit;
+}
+#bottom-buttons a:hover{
+    color: #fff;
 }
 
 #bottom-buttons ul{
