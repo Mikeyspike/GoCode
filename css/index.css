@@ -7,6 +7,9 @@
     margin: 0;
     padding: 20px;
 }
+#editor{
+    font-size: 16px;
+}
 #bottom-buttons a{
     display: block;
     text-decoration: none;
@@ -32,4 +35,7 @@
 }
 .no-margin{
     margin: 0;
+}
+.no-padding{
+    padding: 0;
 }
