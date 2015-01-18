@@ -25,7 +25,7 @@
     font-size: 14px;
 }
 .ace_scrollbar{
-    background-color: #2f3129;
+    background-color: rgba(0,0,0,0.5);
 }
 #bottom-buttons{
     background-color: #34495e;
