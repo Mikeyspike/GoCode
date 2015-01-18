@@ -27,6 +27,12 @@
 .ace_scrollbar{
     background-color: rgba(0,0,0,0.5);
 }
+.ace_scrollbar-v{
+    width: 30px !important;
+}
+.ace_scrollbar-h{
+    height: 30px !important;
+}
 #bottom-buttons{
     background-color: #34495e;
     border-top: 3px solid #2c3e50;
