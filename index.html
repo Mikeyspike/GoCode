@@ -27,22 +27,58 @@
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
         <title>GoCode</title>
-    </head>
-    <body>
-        <div class="app">
-            <h1>GoCode</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </div>
-
-
+        <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
         </script>
+    </head>
+    <body>
+
+
+        <div data-role="page" id="main-page">
+            <div data-role="header" id="header">
+                <ul class="no-margin">
+                    <li><a href="#menu-page"><h1>+</h1></a></li>
+                    <li><h1>GoCode</h1></li>
+                </ul>
+                <div class="clear"></div>
+            </div><!-- /header -->
+
+            <div role="main" class="ui-content">
+                <p>Main Page</p>
+            </div><!-- /content -->
+
+            <div data-role="footer">
+                <div id="bottom-buttons">
+                    <ul>
+                        <li><a href="#">New File</a></li>
+                        <li><a href="#">Open File</a></li>
+                        <li><a href="#">Save File</a></li>
+                        <li><a href="#">Preview File</a></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div><!-- /footer -->
+        </div><!-- /page -->
+
+        <div data-role="page" id="menu-page">
+            <div data-role="header" id="header">
+                <ul class="no-margin">
+                    <li><a href="#main-page"><h1>-</h1></a></li>
+                    <li><h1>GoCode</h1></li>
+                </ul>
+                <div class="clear"></div>
+            </div><!-- /header -->
+
+            <div role="main" class="ui-content">
+                <p>Menu Page</p>
+            </div><!-- /content -->
+        </div>
+
     </body>
 </html>
