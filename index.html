@@ -44,7 +44,7 @@
         <div data-role="page" id="main-page">
             <div data-role="header" id="header">
                 <ul class="no-margin">
-                    <li><a href="#menu-page"><h1 class="no-margin">+</h1></a></li>
+                    <li><a href="#menu-page" data-transition="pop"><h1 class="no-margin">+</h1></a></li>
                     <li><h1 class="no-margin">GoCode</h1></li>
                 </ul>
                 <div class="clear"></div>
@@ -58,8 +58,8 @@
 
             <div data-role="footer"id="bottom-buttons">
                 <ul class="no-margin no-padding">
-                    <li><a href="#">New</a></li>
-                    <li><a href="#">Open</a></li>
+                    <li><a href="#">Find</a></li>
+                    <li><a href="#">Insert</a></li>
                     <li><a href="#">Save</a></li>
                     <li><a href="#">Preview</a></li>
                 </ul>
@@ -70,15 +70,28 @@
         <div data-role="page" id="menu-page">
             <div data-role="header" id="header">
                 <ul class="no-margin no-padding">
-                    <li><a href="#main-page"><h1 class="no-margin">-</h1></a></li>
+                    <li><a href="#main-page" data-transition="pop"><h1 class="no-margin">-</h1></a></li>
                     <li><h1 class="no-margin">GoCode</h1></li>
                 </ul>
                 <div class="clear"></div>
             </div><!-- /header -->
 
             <div role="main" class="ui-content">
-                <a href="#popup1" data-rel="popup" class="ui-btn button" data-transition="pop" data-position-to="window">Basic Popup</a>
+                <a href="#popup1" data-rel="popup" class="ui-btn button" data-transition="pop" data-position-to="window">New File</a>
+                <a href="#popup1" data-rel="popup" class="ui-btn button" data-transition="pop" data-position-to="window">Open File</a>
+                <a href="#popup1" data-rel="popup" class="ui-btn button" data-transition="pop" data-position-to="window">Save File</a>
+                <hr/>
+                <a href="#popup1" data-rel="popup" class="ui-btn button" data-transition="pop" data-position-to="window">Editor Settings</a>
             </div><!-- /content -->
+
+            <div data-role="footer" id="bottom-buttons-menu" data-position="fixed">
+                <ul class="no-margin no-padding">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Credits</a></li>
+                </ul>
+                <div class="clear"></div>
+            </div><!-- /footer -->
+
             <div data-role="popup" class="ui-content" id="popup1">
                 Hey!
             </div>

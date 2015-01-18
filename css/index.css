@@ -4,6 +4,9 @@ body{
 .ui-page-theme-a{
 background-color: #bdc3c7;
 }
+hr{
+    margin: 20px 0;
+}
 #header{
     background-color: #34495e;
     border-bottom: 3px solid #2c3e50;
@@ -66,6 +69,38 @@ background-color: #bdc3c7;
     margin: 0;
 }
 #bottom-buttons a{
+    display: block;
+    text-decoration: none;
+    padding-bottom: 10px;
+}
+
+#bottom-buttons-menu{
+    background-color: #34495e;
+    border-top: 3px solid #2c3e50;
+    border-bottom: none;
+    color: #ecf0f1;
+}
+#bottom-buttons-menu a{
+    display: block;
+    text-decoration: none;
+    padding: 10px 0 10px 0;
+    text-decoration: none;
+    color: inherit;
+}
+#bottom-buttons-menu a:hover{
+    color: #fff;
+}
+
+#bottom-buttons-menu ul{
+    list-style: none;
+}
+#bottom-buttons-menu li{
+    float: left;
+    width: 50%;
+    text-align: center;
+    margin: 0;
+}
+#bottom-buttons-menu a{
     display: block;
     text-decoration: none;
     padding-bottom: 10px;
