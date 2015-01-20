@@ -24,6 +24,22 @@ function changeSize() {
         var bodyheight = $(window).height();
         $("#editor").height(bodyheight - 97);
         $(".ace_content").height(bodyheight - 97);
-        editor.resize()
     });
 }
+
+$('#new-file-confirm').click(function(){
+    editor.setValue("");
+});
+
+$('#mode').on('change', function () {
+    var newMode = $("#mode").val();
+    editor.getSession().setMode("ace/mode/"+newMode);
+});
+$('#theme').on('change', function () {
+    var newTheme = $("#theme").val();
+    editor.setTheme(newTheme);
+});
+$('#fontsize').on('change', function () {
+    var fontSize = $("#fontsize").val();
+    $('#editor').css("font-size", fontSize);
+});
