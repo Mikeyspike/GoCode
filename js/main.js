@@ -18,12 +18,12 @@ $(document).ready(function () {
 
 function changeSize() {
     var bodyheight = $(window).height();
-    $("#editor").height(bodyheight - 97);
-    $(".ace_content").height(bodyheight - 97);
+    $("#editor").height(bodyheight - 101);
+    $(".ace_content").height(bodyheight - 101);
     $(window).resize(function () {
         var bodyheight = $(window).height();
-        $("#editor").height(bodyheight - 97);
-        $(".ace_content").height(bodyheight - 97);
+        $("#editor").height(bodyheight - 101);
+        $(".ace_content").height(bodyheight - 101);
     });
 }
 
@@ -43,3 +43,20 @@ $('#fontsize').on('change', function () {
     var fontSize = $("#fontsize").val();
     $('#editor').css("font-size", fontSize);
 });
+
+$('#file-open-button').click(function(){
+    win();
+});
+
+function win(file) {
+    var reader = new FileReader();
+    reader.onloadend = function (evt) {
+        console.log("read success");
+        console.log(evt.target.result);
+    };
+    reader.readAsText(file);
+};
+
+var fail = function (error) {
+    console.log(error.code);
+};

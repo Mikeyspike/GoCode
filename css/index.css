@@ -15,7 +15,7 @@ hr{
 }
 #header{
     background-color: #34495e;
-    border-bottom: 3px solid #2c3e50;
+    border-bottom: 5px solid #2c3e50;
     border-top: none;
     color: #ecf0f1;
 }
@@ -50,7 +50,7 @@ hr{
 }
 #bottom-buttons{
     background-color: #34495e;
-    border-top: 3px solid #2c3e50;
+    border-top: 5px solid #2c3e50;
     border-bottom: none;
     color: #ecf0f1;
 }
@@ -82,7 +82,7 @@ hr{
 
 #bottom-buttons-menu{
     background-color: #34495e;
-    border-top: 3px solid #2c3e50;
+    border-top: 5px solid #2c3e50;
     border-bottom: none;
     color: #ecf0f1;
 }
@@ -123,7 +123,7 @@ hr{
 .button{
     background-color: #34495e !important;
     border: none !important;
-    border-bottom: 3px solid #2c3e50 !important;
+    border-bottom: 5px solid #2c3e50 !important;
     color: #ecf0f1 !important;
     text-shadow:none !important;
     padding: 20px;
