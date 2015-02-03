@@ -16,6 +16,7 @@ $(document).ready(function () {
 </html>");
 });
 
+
 function changeSize() {
     var bodyheight = $(window).height();
     $("#editor").height(bodyheight - 101);
@@ -45,25 +46,23 @@ $('#fontsize').on('change', function () {
 });
 
 $('#file-open-button').click(function(){
-    init();
+    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
+    window.resolveLocalFileSystemURI("file:///storage/emulated/0/Files/file.txt", onResolveSuccess, fail);
 });
 
-function init() {
-    
-    //This alias is a read-only pointer to the app itself
-    window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/index.html", gotFile, fail);
+function onFileSystemSuccess(fileSystem) {
+        console.log(fileSystem.name);
+    }
 
-    /* Yes, this works too for our specific example...
-    $.get("index.html", function(res) {
-        console.log("index.html", res);
-    });
-    */
-
-}
+    function onResolveSuccess(fileEntry) {
+        console.log(fileEntry.name);
+        gotFile();
+    }
 
 function fail(e) {
     console.log("FileSystem Error");
     console.dir(e);
+    console.log(e.code);
 }
 
 function gotFile(fileEntry) {
