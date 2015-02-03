@@ -47,7 +47,7 @@ $('#fontsize').on('change', function () {
 
 $('#file-open-button').click(function(){
     window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
-    window.resolveLocalFileSystemURl("file:///storage/emulated/0/Files/file.txt", onResolveSuccess, fail);
+    window.resolveLocalFileSystemURL("file:///storage/emulated/0/Files/file.txt", onResolveSuccess, fail);
 });
 
 function onFileSystemSuccess(fileSystem) {
