@@ -47,36 +47,32 @@ $('#fontsize').on('change', function () {
 
 $('#file-open-button').click(function(){
     window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
-    window.resolveLocalFileSystemURI("file:///storage/emulated/0/Files/file.txt", onResolveSuccess, fail);
+    window.resolveLocalFileSystemURl("file:///storage/emulated/0/Files/file.txt", onResolveSuccess, fail);
 });
 
 function onFileSystemSuccess(fileSystem) {
+        console.log("on FileSystem Success");
         console.log(fileSystem.name);
     }
 
     function onResolveSuccess(fileEntry) {
+        console.log("on Resolve Success");
         console.log(fileEntry.name);
-        gotFile();
+         fileEntry.file(function(file) {
+            var reader = new FileReader();
+
+            reader.onloadend = function(e) {
+                console.log("Text is: "+this.result);
+                //document.querySelector("#textArea").innerHTML = this.result;
+                editor.setValue(this.result);
+            }
+
+            reader.readAsText(file);
+        });
     }
 
 function fail(e) {
     console.log("FileSystem Error");
     console.dir(e);
     console.log(e.code);
-}
-
-function gotFile(fileEntry) {
-
-    fileEntry.file(function(file) {
-        var reader = new FileReader();
-
-        reader.onloadend = function(e) {
-            console.log("Text is: "+this.result);
-            //document.querySelector("#textArea").innerHTML = this.result;
-            editor.setValue(this.result);
-        }
-
-        reader.readAsText(file);
-    });
-
 }
