@@ -50,7 +50,7 @@ $('#file-open-button').click(function(){
     window.resolveLocalFileSystemURL("file:///storage/emulated/0/Files/file.txt", obtainFileSuccess, fail);
 });
 
-$('#file-save-button').click(function(){
+$('#saveFile').click(function(){
     window.resolveLocalFileSystemURL("file:///storage/emulated/0/Files/", function(dir) {
         console.log("got main dir",dir);
         dir.getFile("log.txt", {create:true}, function(file) {
