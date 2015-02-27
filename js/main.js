@@ -14,6 +14,26 @@ $(document).ready(function () {
     Welcome to GoCode!\n\
 </body>\n\
 </html>");
+
+    var fileInput = document.getElementById('fileInput');
+    //var fileDisplayArea = editor.setValue();
+
+    fileInput.addEventListener('change', function(e) {
+        var file = fileInput.files[0];
+        var textType = /text.*/;
+
+        if (file.type.match(textType)) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                editor.setValue(reader.result);
+            }
+
+            reader.readAsText(file);    
+        } else {
+            editor.setValue("File Not Supported!!!");
+        }
+    });
 });
 
 
