@@ -58,12 +58,12 @@ $(document).ready(function () {
 
 function changeSize() {
     var bodyheight = $(window).height();
-    $("#editor").height(bodyheight - 109);
-    $(".ace_content").height(bodyheight - 109);
+    $("#editor").height(bodyheight - 101);
+    $(".ace_content").height(bodyheight - 101);
     $(window).resize(function () {
         var bodyheight = $(window).height();
-        $("#editor").height(bodyheight - 109);
-        $(".ace_content").height(bodyheight - 109);
+        $("#editor").height(bodyheight - 101);
+        $(".ace_content").height(bodyheight - 101);
     });
 }
 
