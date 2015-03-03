@@ -2,9 +2,17 @@ var editor = ace.edit("editor");
 	editor.setTheme("ace/theme/monokai");
 	editor.getSession().setMode("ace/mode/html");
 
-
-
 $(document).ready(function () {
+    editor.setValue("<!DOCTYPE html>\n\
+<html>\n\
+<head>\n\
+    <title>GoCode v8</title>\n\
+</head>\n\
+<body>\n\
+    Welcome to GoCode!\n\
+</body>\n\
+</html>");
+
 	changeSize();
     $('.modal-trigger').leanModal();
     $('select').material_select();
