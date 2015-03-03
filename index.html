@@ -29,6 +29,7 @@
 	<title>GoCode</title>
 	<!-- CSS -->
 	<link rel="stylesheet" href="css/materialize.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.css" />
 	<link rel="stylesheet" href="css/index.css" />
 	<!-- JS -->
 	<script src="js/jquery-1.11.2.min.js"></script>
@@ -41,7 +42,8 @@
 </head>
 <body>
 
-	<header>
+<section data-role="page">
+	<header data-role="header">
 		<nav class="blue-grey darken-4">
 			<ul id="slide-out" class="side-nav">
 				<li><a class="modal-trigger" href="#new-file-modal"><i class="mdi-file-folder-open left small"></i>New File</a></li>
@@ -56,9 +58,9 @@
 		</nav>
 	</header>
 
-	<div id="editor"></div>
+	<div role="main" id="editor"></div>
 
-	<footer class="blue-grey darken-4">
+	<footer data-role="footer" class="blue-grey darken-4">
 		<ul>
 			<li class="waves-effect waves-light"><a href=""><i class="mdi-action-search small"></i></a></li>
 			<li class="waves-effect waves-light"><a href=""><i class="mdi-action-swap-vert small"></i></a></li>
@@ -66,6 +68,7 @@
 			<li class="waves-effect waves-light"><a href=""><i class="mdi-image-remove-red-eye small"></i></a></li>
 		</ul>
 	</footer>
+</section>
 
 	<!-- Modals -->
 	<!-- New File Modal -->

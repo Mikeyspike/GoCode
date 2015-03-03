@@ -15,6 +15,6 @@ footer ul li a{
 	color: #fff;
 }
 
-.custom-file-input::-webkit-file-upload-button {
-  visibility: hidden;
+#editor{
+    font-size: 16px;
 }
