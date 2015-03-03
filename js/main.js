@@ -62,6 +62,8 @@ $(document).ready(function () {
         }
     });
 
+    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, FileSystemSuccess, fail);
+
 });
 
 function changeSize() {
@@ -77,7 +79,6 @@ function changeSize() {
 
 
 $('#save-file-modal-yes').click(function(){
-    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, FileSystemSuccess, fail);
     var filename = document.getElementById('save-file-name').value
     window.resolveLocalFileSystemURL(fileSystem.root, function(dir) {
         console.log("got main dir",dir);
