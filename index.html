@@ -1,173 +1,314 @@
 <!DOCTYPE html>
 <!--
-	Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
 
-	Licensed to the Apache Software Foundation (ASF) under one
-	or more contributor license agreements.  See the NOTICE file
-	distributed with this work for additional information
-	regarding copyright ownership.  The ASF licenses this file
-	to you under the Apache License, Version 2.0 (the
-	"License"); you may not use this file except in compliance
-	with the License.  You may obtain a copy of the License at
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
 
-	http://www.apache.org/licenses/LICENSE-2.0
+    http://www.apache.org/licenses/LICENSE-2.0
 
-	Unless required by applicable law or agreed to in writing,
-	software distributed under the License is distributed on an
-	"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-	 KIND, either express or implied.  See the License for the
-	specific language governing permissions and limitations
-	under the License.
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
 -->
-<html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<meta name="format-detection" content="telephone=no" />
-	<meta name="msapplication-tap-highlight" content="no" />
-	<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height"/>
-	<title>GoCode</title>
-	<!-- CSS -->
-	<link rel="stylesheet" href="css/materialize.min.css" />
-	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.css" />
-	<link rel="stylesheet" href="css/index.css" />
-	<!-- JS -->
-	<script src="js/jquery-1.11.2.min.js"></script>
-	<script src="js/jquery.mobile-1.4.5.min.js"></script>
-	<script src="cordova.js"></script>
-	<script src="js/index.js"></script>
-	<script type="text/javascript">
-        app.initialize();
-    </script>
-</head>
-<body>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+        <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.css" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>GoCode</title>
+        <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </head>
+    <body>
 
-<section data-role="page">
-	<header data-role="header">
-		<nav class="blue-grey darken-4">
-			<ul id="slide-out" class="side-nav">
-				<li><a class="modal-trigger" href="#new-file-modal"><i class="mdi-file-folder-open left small"></i>New File</a></li>
-				<li><a class="modal-trigger" href="#open-file-modal"><i class="mdi-file-folder-open left small"></i>Open File</a></li>
-				<li><a class="modal-trigger" href="#save-file-modal"><i class="mdi-content-save left small"></i>Save File</a></li>
-				<hr/>
-				<li><a class="modal-trigger" href="#app-settings-modal"><i class="mdi-action-settings left small"></i>App Settings</a></li>
-				<li><a class="modal-trigger" href="#about-app-modal"><i class="mdi-action-info left small"></i>About App</a></li>
-			</ul>
-			<a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
-			<div class="center-align" id="page-title">GoCode</div>
-		</nav>
-	</header>
+        <!--Main Page-->
+        <div data-role="page" id="main-page">
+            <div data-role="header" id="header">
+                <ul class="no-margin">
+                    <li><a href="#menu-page" data-transition="slide"><h1 class="no-margin">+</h1></a></li>
+                    <li><h1 class="no-margin">GoCode</h1></li>
+                </ul>
+                <div class="clear"></div>
+            </div><!-- /header -->
 
-	<div role="main" id="editor"></div>
+            <div role="main" class="ui-content no-padding">
+                <div id="editor"></div>
+            </div><!-- /content -->
 
-	<footer data-role="footer" class="blue-grey darken-4">
-		<ul>
-			<li class="waves-effect waves-light"><a href=""><i class="mdi-action-search small"></i></a></li>
-			<li class="waves-effect waves-light"><a href=""><i class="mdi-action-swap-vert small"></i></a></li>
-			<li class="waves-effect waves-light"><a href=""><i class="mdi-editor-insert-comment small"></i></a></li>
-			<li class="waves-effect waves-light"><a href=""><i class="mdi-image-remove-red-eye small"></i></a></li>
-		</ul>
-	</footer>
-</section>
+            <div data-role="footer"id="bottom-buttons">
+                <ul class="no-margin no-padding">
+                    <li><a href="#">Find</a></li>
+                    <li><a href="#">Insert</a></li>
+                    <li><a href="#">Save</a></li>
+                    <li><a href="#">Preview</a></li>
+                </ul>
+                <div class="clear"></div>
+            </div><!-- /footer -->
+        </div><!-- /page -->
 
-	<!-- Modals -->
-	<!-- New File Modal -->
-  <div id="new-file-modal" class="modal">
-    <div class="modal-content">
-      <h4>New File</h4>
-      <p>Creating a new file wipes the current document! Are you sure you want to continue?</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close" id="new-file-modal-No">No</a>
-      <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close" id="new-file-modal-yes">Yes</a>
-    </div>
-  </div>
+        <!--Menu Page-->
+        <div data-role="page" id="menu-page">
+            <div data-role="header" id="header">
+                <ul class="no-margin no-padding">
+                    <li><a href="#main-page" data-transition="slide"><h1 class="no-margin">-</h1></a></li>
+                    <li><h1 class="no-margin">GoCode</h1></li>
+                </ul>
+                <div class="clear"></div>
+            </div><!-- /header -->
 
-	<!-- Open File Modal -->
-  <div id="open-file-modal" class="modal">
-    <div class="modal-content">
-      <h4>Open File</h4>
-      <p>Opening a new file will clear the current document! Are you sure you want to continue?</p>
-      <form action="#">
-		    <div class="file-field input-field">
-		      <input class="file-path validate" type="text"/>
-		      <div class="btn">
-		        <span>File</span>
-		        <input type="file" id="fileinput" />
-		      </div>
-		    </div>
-		  </form>
-    </div>
-    <div class="modal-footer">
-      <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close" id="open-file-modal-No">Cancel</a>
-    </div>
-  </div>
+            <div role="main" class="ui-content">
+                <a href="#newfilepopup" data-rel="popup" class="ui-btn button" data-transition="pop" data-position-to="window">New File</a>
+                <a href="#popup1" data-rel="popup" class="ui-btn button" data-transition="pop" data-position-to="window" id="file-open-button">Open File</a>
+                <label for="openthisfile">Open This File</label>
+                <input name="openthisfile" type="file" id="fileInput">
+                <a href="#popup1" data-rel="popup" class="ui-btn button" data-transition="pop" data-position-to="window" id="saveFile">Save File</a>
+                <hr/>
+                <a href="#editorsettingspopup" data-rel="popup" class="ui-btn button" data-transition="pop" data-position-to="window">Editor Settings</a>
+            </div><!-- /content -->
 
-  <!-- Save File Modal -->
-  <div id="save-file-modal" class="modal">
-    <div class="modal-content">
-      <h4>Save File</h4>
-      <p>Any files will be overwritten!</p>
-      <h5>Directory:</h5>
-      <input type="text" id="save-file-dir">
-      <h5>File Name:</h5>
-      <input type="text" id="save-file-name">
-    </div>
-    <div class="modal-footer">
-      <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close" id="save-file-modal-No">Cancel</a>
-      <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close" id="save-file-modal-yes">Save</a>
-    </div>
-  </div>
+            <div data-role="footer" id="bottom-buttons-menu" data-position="fixed">
+                <ul class="no-margin no-padding">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Credits</a></li>
+                </ul>
+                <div class="clear"></div>
+            </div><!-- /footer -->
 
-  <!-- App Settings Modal -->
-  <div id="app-settings-modal" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <h4>App Settings</h4>
-      <p>Below are options that will alter how this app looks and behaves.</p>
-			<lable>Editor Theme:</lable>
-				<select id="theme">
-					<option value="ace/theme/clouds">Clouds</option>
-					<option value="ace/theme/monokai" selected="selected">Monokai</option>
-				</select>
-			<label>Editor Mode:</label>
-				<select id="mode">
-					<option value="css">CSS</option>
-					<option value="html" selected="selected">HTML</option>
-					<option value="javascript">JavaScript</option>
-					<option value="markdown">Markdown</option>
-					<option value="php">PHP</option>
-					<option value="text">Text</option>
-				</select>
-			<label>Text Size:</label>
-				<select id="fontsize">
-					<option value="12px">12px</option>
-					<option value="13px">13px</option>
-					<option value="14px">14px</option>
-					<option value="16px" selected="selected">16px</option>
-					<option value="18px">18px</option>
-					<option value="20px">20px</option>
-				</select>
-    </div>
-    <div class="modal-footer">
-      <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close" id="app-settings-modal-No">Close</a>
-    </div>
-  </div>
+            <div data-role="popup" class="ui-content" id="newfilepopup" data-dismissible="false">
+                <h2>Are you sure ?</h2>
+                <p>Any unsaved changes, will be lost!</p>
+                <div class="center">
+                    <a href="#" data-rel="back" id="new-file-confirm" class="ui-btn ui-btn-inline button">Yes</a>
+                    <a href="#" data-rel="back" class="ui-btn ui-btn-inline button">No</a>
+                </div>
+            </div>
 
-  <!-- About App Modal -->
-  <div id="about-app-modal" class="modal">
-    <div class="modal-content">
-      <h4>About</h4>
-      <p>Abouut this app</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close" id="about-app-modal-No">Close</a>
-    </div>
-  </div>
-          
-
-<!-- JS -->
-<script src="js/materialize.min.js"></script>
-<script src="js/ace/ace.js"></script>
-<script src="js/main.js"></script>
-</body>
+            <!--Editor Settings-->
+            <div data-role="popup" class="ui-content" id="editorsettingspopup">
+                <h2>Editor Settings</h2>
+                <p>Change the settings of the editor here.</p>
+                <lable>Editor Theme:
+                    <select id="theme">
+                        <optgroup label="Bright">
+                            <option value="ace/theme/chrome">Chrome</option>
+                            <option value="ace/theme/clouds">Clouds</option>
+                            <option value="ace/theme/crimson_editor">Crimson Editor</option>
+                            <option value="ace/theme/dawn">Dawn</option>
+                            <option value="ace/theme/dreamweaver">Dreamweaver</option>
+                            <option value="ace/theme/eclipse">Eclipse</option>
+                            <option value="ace/theme/github">GitHub</option>
+                            <option value="ace/theme/solarized_light">Solarized Light</option>
+                            <option value="ace/theme/textmate">TextMate</option>
+                            <option value="ace/theme/tomorrow">Tomorrow</option>
+                            <option value="ace/theme/xcode">XCode</option>
+                            <option value="ace/theme/kuroir">Kuroir</option>
+                            <option value="ace/theme/katzenmilch">KatzenMilch</option>
+                        </optgroup>
+                        <optgroup label="Dark">
+                            <option value="ace/theme/ambiance">Ambiance</option>
+                            <option value="ace/theme/chaos">Chaos</option>
+                            <option value="ace/theme/clouds_midnight">Clouds Midnight</option>
+                            <option value="ace/theme/cobalt">Cobalt</option>
+                            <option value="ace/theme/idle_fingers">idle Fingers</option>
+                            <option value="ace/theme/kr_theme">krTheme</option>
+                            <option value="ace/theme/merbivore">Merbivore</option>
+                            <option value="ace/theme/merbivore_soft">Merbivore Soft</option>
+                            <option value="ace/theme/mono_industrial">Mono Industrial</option>
+                            <option value="ace/theme/monokai" selected="selected">Monokai</option>
+                            <option value="ace/theme/pastel_on_dark">Pastel on dark</option>
+                            <option value="ace/theme/solarized_dark">Solarized Dark</option>
+                            <option value="ace/theme/terminal">Terminal</option>
+                            <option value="ace/theme/tomorrow_night">Tomorrow Night</option>
+                            <option value="ace/theme/tomorrow_night_blue">Tomorrow Night Blue</option>
+                            <option value="ace/theme/tomorrow_night_bright">Tomorrow Night Bright</option>
+                            <option value="ace/theme/tomorrow_night_eighties">Tomorrow Night 80s</option>
+                            <option value="ace/theme/twilight">Twilight</option>
+                            <option value="ace/theme/vibrant_ink">Vibrant Ink</option>
+                        </optgroup>
+                    </select>
+                </lable>
+                <label>Editor Mode:
+                    <select id="mode">
+                        <!--
+                        <option value="abap">ABAP</option>
+                        <option value="actionscript">ActionScript</option>
+                        <option value="ada">ADA</option>
+                        <option value="apache_conf">Apache Conf</option>
+                        <option value="asciidoc">AsciiDoc</option>
+                        <option value="assembly_x86">Assembly x86</option>
+                        <option value="autohotkey">AutoHotKey</option>
+                        <option value="batchfile">BatchFile</option>
+                        <option value="c9search">C9Search</option>
+                        <option value="c_cpp">C and C++</option>
+                        <option value="cirru">Cirru</option>
+                        <option value="clojure">Clojure</option>
+                        <option value="cobol">Cobol</option>
+                        -->
+                        <option value="coffee">CoffeeScript</option>
+                        <!--
+                        <option value="coldfusion">ColdFusion</option>
+                        <option value="csharp">C#</option>
+                        -->
+                        <option value="css">CSS</option>
+                        <!--
+                        <option value="curly">Curly</option>
+                        <option value="d">D</option>
+                        <option value="dart">Dart</option>
+                        <option value="diff">Diff</option>
+                        <option value="dockerfile">Dockerfile</option>
+                        <option value="dot">Dot</option>
+                        <option value="dummy">Dummy</option>
+                        <option value="dummysyntax">DummySyntax</option>
+                        <option value="eiffel">Eiffel</option>
+                        <option value="ejs">EJS</option>
+                        <option value="elixir">Elixir</option>
+                        <option value="elm">Elm</option>
+                        <option value="erlang">Erlang</option>
+                        <option value="forth">Forth</option>
+                        <option value="ftl">FreeMarker</option>
+                        <option value="gcode">Gcode</option>
+                        <option value="gherkin">Gherkin</option>
+                        <option value="gitignore">Gitignore</option>
+                        <option value="glsl">Glsl</option>
+                        <option value="golang">Go</option>
+                        <option value="groovy">Groovy</option>
+                        <option value="haml">HAML</option>
+                        <option value="handlebars">Handlebars</option>
+                        <option value="haskell">Haskell</option>
+                        <option value="haxe">haXe</option>
+                        -->
+                        <option value="html" selected="selected">HTML</option>
+                        <option value="html_ruby">HTML (Ruby)</option>
+                        <!--
+                        <option value="ini">INI</option>
+                        <option value="io">Io</option>
+                        <option value="jack">Jack</option>
+                        <option value="jade">Jade</option>
+                        <option value="java">Java</option>
+                        -->
+                        <option value="javascript">JavaScript</option>
+                        <option value="json">JSON</option>
+                        <option value="jsoniq">JSONiq</option>
+                        <!--
+                        <option value="jsp">JSP</option>
+                        <option value="jsx">JSX</option>
+                        <option value="julia">Julia</option>
+                        <option value="latex">LaTeX</option>
+                        -->
+                        <option value="less">LESS</option>
+                        <!--
+                        <option value="liquid">Liquid</option>
+                        <option value="lisp">Lisp</option>
+                        <option value="livescript">LiveScript</option>
+                        <option value="logiql">LogiQL</option>
+                        <option value="lsl">LSL</option>
+                        <option value="lua">Lua</option>
+                        <option value="luapage">LuaPage</option>
+                        <option value="lucene">Lucene</option>
+                        <option value="makefile">Makefile</option>
+                        -->
+                        <option value="markdown">Markdown</option>
+                        <!--
+                        <option value="matlab">MATLAB</option>
+                        <option value="mel">MEL</option>
+                        <option value="mushcode">MUSHCode</option>
+                        -->
+                        <option value="mysql">MySQL</option>
+                        <!--
+                        <option value="nix">Nix</option>
+                        <option value="objectivec">Objective-C</option>
+                        <option value="ocaml">OCaml</option>
+                        <option value="pascal">Pascal</option>
+                        <option value="perl">Perl</option>
+                        <option value="pgsql">pgSQL</option>
+                        -->
+                        <option value="php">PHP</option>
+                        <!--
+                        <option value="powershell">Powershell</option>
+                        <option value="praat">Praat</option>
+                        <option value="prolog">Prolog</option>
+                        <option value="properties">Properties</option>
+                        <option value="protobuf">Protobuf</option>
+                        <option value="python">Python</option>
+                        <option value="r">R</option>
+                        <option value="rdoc">RDoc</option>
+                        -->
+                        <option value="rhtml">RHTML</option>
+                        <option value="ruby">Ruby</option>
+                        <!--<option value="rust">Rust</option>-->
+                        <option value="sass">SASS</option>
+                        <!--
+                        <option value="scad">SCAD</option>
+                        <option value="scala">Scala</option>
+                        <option value="scheme">Scheme</option>
+                        -->
+                        <option value="scss">SCSS</option>
+                        <!--
+                        <option value="sh">SH</option>
+                        <option value="sjs">SJS</option>
+                        <option value="smarty">Smarty</option>
+                        <option value="snippets">snippets</option>
+                        <option value="soy_template">Soy Template</option>
+                        <option value="space">Space</option>
+                        <option value="sql">SQL</option>
+                        <option value="stylus">Stylus</option>
+                        <option value="svg">SVG</option>
+                        <option value="tcl">Tcl</option>
+                        <option value="tex">Tex</option>
+                        -->
+                        <option value="text">Text</option>
+                        <!--
+                        <option value="textile">Textile</option>
+                        <option value="toml">Toml</option>
+                        <option value="twig">Twig</option>
+                        <option value="typescript">Typescript</option>
+                        <option value="vala">Vala</option>
+                        <option value="vbscript">VBScript</option>
+                        <option value="velocity">Velocity</option>
+                        <option value="verilog">Verilog</option>
+                        <option value="vhdl">VHDL</option>
+                        <option value="xml">XML</option>
+                        <option value="xquery">XQuery</option>
+                        <option value="yaml">YAML</option>
+                        -->
+                    </select>
+                </label>
+                <label>Text Size:
+                    <select id="fontsize">
+                        <option value="10px">10px</option>
+                        <option value="11px">11px</option>
+                        <option value="12px">12px</option>
+                        <option value="13px">13px</option>
+                        <option value="14px">14px</option>
+                        <option value="16px" selected="selected">16px</option>
+                        <option value="18px">18px</option>
+                        <option value="20px">20px</option>
+                        <option value="24px">24px</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+        
+        <script src="js/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/main.js"></script>
+    </body>
 </html>
