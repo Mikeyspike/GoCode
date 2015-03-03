@@ -20,13 +20,13 @@ $(document).ready(function () {
 
     $('#new-file-modal-yes').click(function(){
         $('.button-collapse').sideNav('hide');
-        toast('New File Created!', 4000) // 4000 is the duration of the toast
+        toast('New File Created!', 4000); // 4000 is the duration of the toast
         editor.setValue(null);
     });
 
     //App settings changes
     $('#mode').on('change', function () {
-        var newMode = $("#mode").val()
+        var newMode = $("#mode").val();
         editor.getSession().setMode("ace/mode/"+newMode);
     });
     $('#theme').on('change', function () {
@@ -51,7 +51,7 @@ $(document).ready(function () {
 
             reader.onload = function(e) {
                 editor.setValue(reader.result);
-                toast('File Opened!', 4000) // 4000 is the duration of the toast
+                toast('File Opened!', 4000); // 4000 is the duration of the toast
                 $('#open-file-modal').closeModal();
                 $('.button-collapse').sideNav('hide');
             }
@@ -79,7 +79,7 @@ function changeSize() {
 
 
 $('#save-file-modal-yes').click(function(){
-    var filename = document.getElementById('save-file-name').value
+    var filename = document.getElementById('save-file-name').value;
     window.resolveLocalFileSystemURL(fileSystem.root, function(dir) {
         console.log("got main dir",dir);
         dir.getFile(filename + ".txt", {create:true}, function(file) {
@@ -102,7 +102,7 @@ function writeLog(str) {
         var blob = new Blob([log], {type:'text/plain'});
         fileWriter.write(blob);
         console.log("ok, in theory i worked");
-        toast('File Saved!', 4000) // 4000 is the duration of the toast
+        toast('File Saved!', 4000); // 4000 is the duration of the toast
     }, fail);
 }
 
@@ -114,5 +114,17 @@ function fail(e) {
     console.log("FileSystem Error");
     console.dir(e);
     console.log(e.code);
-    toast('Something Went Wrong D:', 4000) // 4000 is the duration of the toast
+    toast('Something Went Wrong D:', 4000); // 4000 is the duration of the toast
 }
+
+$('#find-all-modal-findall').click(function(){
+    //var needle = document.getElementById('find-needle').value;
+    //editor.findAll(needle);
+    editor.execCommand("find");
+});
+$('#replace-modal-replaceall').click(function(){
+    //var needle = document.getElementById('find-to-replace-needle').value;
+    //var replaceWith = document.getElementById('replace-with-needle').value;
+    //editor.replaceAll(replaceWith, needle);
+    editor.execCommand("replace");
+});
