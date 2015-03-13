@@ -6,9 +6,14 @@ var editor = ace.edit("editor");
 
 $(document).ready(function () {
     var myCodeMirror = CodeMirror(document.getElementById("editor"), {
-      value: "function myScript(){return 100;}\n",
+      value: "<html></html>",
       mode:  "htmlmixed",
-      theme: "monokai"
+      theme: "monokai",
+      lineNumbers: true,
+      autoCloseBrackets: true,
+      matchBrackets: true,
+      matchTags: true,
+      autoCloseTags: true
     });
     changeSize();
     /*
@@ -30,7 +35,7 @@ $(document).ready(function () {
     $('#new-file-modal-yes').click(function(){
         $('.button-collapse').sideNav('hide');
         toast('New File Created!', 4000); // 4000 is the duration of the toast
-        //editor.setValue(null);
+        myCodeMirror.setValue("");
     });
 
     /*App settings changes
