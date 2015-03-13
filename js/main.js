@@ -7,7 +7,8 @@ var editor = ace.edit("editor");
 $(document).ready(function () {
     var myCodeMirror = CodeMirror(document.getElementById("editor"), {
       value: "function myScript(){return 100;}\n",
-      mode:  "javascript"
+      mode:  "htmlmixed",
+      theme: "monokai"
     });
     changeSize();
     /*
@@ -32,7 +33,7 @@ $(document).ready(function () {
         //editor.setValue(null);
     });
 
-    //App settings changes
+    /*App settings changes
     $('#mode').on('change', function () {
         var newMode = $("#mode").val();
         editor.getSession().setMode("ace/mode/"+newMode);
@@ -40,7 +41,7 @@ $(document).ready(function () {
     $('#theme').on('change', function () {
         var newTheme = $("#theme").val();
         editor.setTheme(newTheme);
-    });
+    });*/
     $('#fontsize').on('change', function () {
         var fontSize = $("#fontsize").val();
         $('#editor').css("font-size", fontSize);
@@ -48,7 +49,7 @@ $(document).ready(function () {
 
     //file open
     var fileInput = document.getElementById('fileinput');
-    //var fileDisplayArea = editor.setValue();
+    var fileDisplayArea = myCodeMirror.value;
 
     fileInput.addEventListener('change', function(e) {
         var file = fileInput.files[0];
@@ -75,14 +76,14 @@ $(document).ready(function () {
 });
 
 function changeSize() {
-    editor.resize();
+    //editor.resize();
     var bodyheight = $(window).height();
     $("#editor").height(bodyheight - 101);
-    $(".ace_content").height(bodyheight - 101);
+    $(".CodeMirror").height(bodyheight - 101);
     $(window).resize(function () {
         var bodyheight = $(window).height();
         $("#editor").height(bodyheight - 101);
-        $(".ace_content").height(bodyheight - 101);
+        $(".CodeMirror").height(bodyheight - 101);
     });
 }
 
