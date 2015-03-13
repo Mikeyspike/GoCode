@@ -3,6 +3,7 @@ var editor = ace.edit("editor");
 	editor.getSession().setMode("ace/mode/html");
 
 $(document).ready(function () {
+    changeSize();
     editor.setValue("<!DOCTYPE html>\n\
 <html>\n\
 <head>\n\
@@ -13,7 +14,7 @@ $(document).ready(function () {
 </body>\n\
 </html>");
 
-	changeSize();
+	
     $('.modal-trigger').leanModal();
     $('select').material_select();
     $('.button-collapse').sideNav({menuWidth: 240, activationWidth: 100});
@@ -67,6 +68,7 @@ $(document).ready(function () {
 });
 
 function changeSize() {
+    editor.resize();
     var bodyheight = $(window).height();
     $("#editor").height(bodyheight - 101);
     $(".ace_content").height(bodyheight - 101);
