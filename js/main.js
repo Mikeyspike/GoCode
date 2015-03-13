@@ -1,9 +1,16 @@
+/*
 var editor = ace.edit("editor");
 	editor.setTheme("ace/theme/monokai");
 	editor.getSession().setMode("ace/mode/html");
+*/
 
 $(document).ready(function () {
+    var myCodeMirror = CodeMirror(document.getElementById("editor"), {
+      value: "function myScript(){return 100;}\n",
+      mode:  "javascript"
+    });
     changeSize();
+    /*
     editor.setValue("<!DOCTYPE html>\n\
 <html>\n\
 <head>\n\
@@ -12,7 +19,7 @@ $(document).ready(function () {
 <body>\n\
     Welcome to GoCode!\n\
 </body>\n\
-</html>");
+</html>");*/
 
 	
     $('.modal-trigger').leanModal();
@@ -22,7 +29,7 @@ $(document).ready(function () {
     $('#new-file-modal-yes').click(function(){
         $('.button-collapse').sideNav('hide');
         toast('New File Created!', 4000); // 4000 is the duration of the toast
-        editor.setValue(null);
+        //editor.setValue(null);
     });
 
     //App settings changes
