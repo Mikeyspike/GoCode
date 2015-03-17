@@ -6,7 +6,7 @@ var editor = ace.edit("editor");
 
 $(document).ready(function () {
     var myCodeMirror = CodeMirror(document.getElementById("editor"), {
-      value: "<html></html>",
+      value: "Welcome to GoCode!",
       mode:  "htmlmixed",
       theme: "monokai",
       lineNumbers: true,
@@ -38,15 +38,15 @@ $(document).ready(function () {
         myCodeMirror.setValue("");
     });
 
-    /*App settings changes
+    //App settings changes
     $('#mode').on('change', function () {
         var newMode = $("#mode").val();
-        editor.getSession().setMode("ace/mode/"+newMode);
+        myCodeMirror.setOption("mode", newMode);
     });
     $('#theme').on('change', function () {
         var newTheme = $("#theme").val();
-        editor.setTheme(newTheme);
-    });*/
+        myCodeMirror.setOption("theme", newTheme);
+    });
     $('#fontsize').on('change', function () {
         var fontSize = $("#fontsize").val();
         $('#editor').css("font-size", fontSize);
@@ -64,7 +64,7 @@ $(document).ready(function () {
             var reader = new FileReader();
 
             reader.onload = function(e) {
-                editor.setValue(reader.result);
+                myCodeMirror.setValue(reader.result);
                 toast('File Opened!', 4000); // 4000 is the duration of the toast
                 $('#open-file-modal').closeModal();
                 $('.button-collapse').sideNav('hide');
@@ -72,7 +72,7 @@ $(document).ready(function () {
 
             reader.readAsText(file);    
         } else {
-            editor.setValue("File Not Supported!!!");
+            myCodeMirror.setValue("File Not Supported!!!");
         }
     });
 
@@ -85,10 +85,12 @@ function changeSize() {
     var bodyheight = $(window).height();
     $("#editor").height(bodyheight - 101);
     $(".CodeMirror").height(bodyheight - 101);
+    $(".CodeMirror-gutters").height(bodyheight - 101);
     $(window).resize(function () {
         var bodyheight = $(window).height();
         $("#editor").height(bodyheight - 101);
         $(".CodeMirror").height(bodyheight - 101);
+        $(".CodeMirror-gutters").height(bodyheight - 101);
     });
 }
 
@@ -100,7 +102,7 @@ $('#save-file-modal-yes').click(function(){
         dir.getFile(filename + ".txt", {create:true}, function(file) {
             console.log("got the file", file);
             logOb = file;
-            var fileContent = editor.getValue();
+            var fileContent = myCodeMirror.getValue();
             writeLog(fileContent);            
         });
     });
@@ -133,13 +135,8 @@ function fail(e) {
 }
 
 $('#find-all-modal-findall').click(function(){
-    //var needle = document.getElementById('find-needle').value;
-    //editor.findAll(needle);
-    editor.execCommand("find");
+    toast("Not Yet Supported!", 4000);
 });
 $('#replace-modal-replaceall').click(function(){
-    //var needle = document.getElementById('find-to-replace-needle').value;
-    //var replaceWith = document.getElementById('replace-with-needle').value;
-    //editor.replaceAll(replaceWith, needle);
-    editor.execCommand("replace");
+    toast("Not Yet Supported!", 4000);
 });

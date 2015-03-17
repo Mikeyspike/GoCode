@@ -18,12 +18,7 @@ footer ul li a{
 #editor{
     font-size: 16px;
 }
-.ace_scrollbar{
-    background-color: rgba(0,0,0,0.5);
-}
-.ace_scrollbar-v{
-    width: 30px !important;
-}
-.ace_scrollbar-h{
-    height: 30px !important;
+.cm-s-monokai .CodeMirror-gutters{
+	background: #2F302B;
+	border-right: 2px solid #20201E;
 }
