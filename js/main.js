@@ -78,10 +78,11 @@ $(document).ready(function () {
 
     window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, FileSystemSuccess, fail);
 
+    
+
 });
 
 function changeSize() {
-    //editor.resize();
     var bodyheight = $(window).height();
     $("#editor").height(bodyheight - 101);
     $(".CodeMirror").height(bodyheight - 101);
@@ -97,7 +98,8 @@ function changeSize() {
 
 $('#save-file-modal-yes').click(function(){
     var filename = document.getElementById('save-file-name').value;
-    window.resolveLocalFileSystemURL(fileSystem.root, function(dir) {
+    var directory = document.getElementById('save-file-dir').value;
+    window.resolveLocalFileSystemURL(fileSystem.root+directory, function(dir) {
         console.log("got main dir",dir);
         dir.getFile(filename + ".txt", {create:true}, function(file) {
             console.log("got the file", file);
@@ -107,6 +109,13 @@ $('#save-file-modal-yes').click(function(){
         });
     });
 });
+
+$('#find-all-modal-findall').on("click", function(){
+        toast("Not Yet Supported!", 4000);
+    });
+    $('#replace-modal-replaceall').on("click", function(){
+        toast("Not Yet Supported!", 4000);
+    });
 
 function writeLog(str) {
     if(!logOb) return;
@@ -134,9 +143,3 @@ function fail(e) {
     toast('Something Went Wrong D:', 4000); // 4000 is the duration of the toast
 }
 
-$('#find-all-modal-findall').click(function(){
-    toast("Not Yet Supported!", 4000);
-});
-$('#replace-modal-replaceall').click(function(){
-    toast("Not Yet Supported!", 4000);
-});

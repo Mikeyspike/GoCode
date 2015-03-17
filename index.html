@@ -64,8 +64,8 @@
 		<ul>
 			<li class="waves-effect waves-light"><a class="modal-trigger" href="#find-all-modal"><i class="mdi-action-search small"></i></a></li>
 			<li class="waves-effect waves-light"><a class="modal-trigger" href="#replace-modal"><i class="mdi-action-swap-vert small"></i></a></li>
-			<li class="waves-effect waves-light"><a href=""><i class="mdi-editor-insert-comment small"></i></a></li>
-			<li class="waves-effect waves-light"><a href=""><i class="mdi-image-remove-red-eye small"></i></a></li>
+			<li class="waves-effect waves-light"><a><i class="mdi-editor-insert-comment small"></i></a></li>
+			<li class="waves-effect waves-light"><a><i class="mdi-image-remove-red-eye small"></i></a></li>
 		</ul>
 	</footer>
 </section>
@@ -93,7 +93,7 @@
 		      <input class="file-path validate" type="text"/>
 		      <div class="btn">
 		        <span>File</span>
-		        <input type="file" id="fileinput" />
+		        <input type="file" id="fileinput" accept="text/*,.css,.js" />
 		      </div>
 		    </div>
 		  </form>
@@ -126,13 +126,13 @@
       <p>Below are options that will alter how this app looks and behaves.</p>
 			<lable>Editor Theme:</lable>
 				<select id="theme">
-					<option value="ace/theme/clouds">Clouds</option>
-					<option value="ace/theme/monokai" selected="selected">Monokai</option>
+					<option value="clouds">Clouds</option>
+					<option value="monokai" selected="selected">Monokai</option>
 				</select>
 			<label>Editor Mode:</label>
 				<select id="mode">
 					<option value="css">CSS</option>
-					<option value="html" selected="selected">HTML</option>
+					<option value="htmlmixed" selected="selected">HTML</option>
 					<option value="javascript">JavaScript</option>
 					<option value="markdown">Markdown</option>
 					<option value="php">PHP</option>
@@ -141,7 +141,6 @@
 			<label>Text Size:</label>
 				<select id="fontsize">
 					<option value="12px">12px</option>
-					<option value="13px">13px</option>
 					<option value="14px">14px</option>
 					<option value="16px" selected="selected">16px</option>
 					<option value="18px">18px</option>
