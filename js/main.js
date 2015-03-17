@@ -61,8 +61,21 @@ $(document).ready(function () {
 
     window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, FileSystemSuccess, fail);
 
-    
-
+    //save file
+    $('#save-file-modal-yes').click(function(){
+        console.log("Save button Clicked")
+        var filename = document.getElementById('save-file-name').value;
+        //var directory = document.getElementById('save-file-dir').value;
+        window.resolveLocalFileSystemURL("file:///storage/emulated/0/Files/", function(dir) {
+            console.log("got main dir",dir);
+            dir.getFile(filename + ".txt", {create:true}, function(file) {
+                console.log("got the file", file);
+                logOb = file;
+                var fileContent = myCodeMirror.getValue();
+                writeLog(fileContent);            
+            });
+        });
+    });
 });
 
 function changeSize() {
@@ -77,22 +90,6 @@ function changeSize() {
         $(".CodeMirror-gutters").height(bodyheight - 101);
     });
 }
-
-
-$('#save-file-modal-yes').click(function(){
-    console.log("Save button Clicked")
-    var filename = document.getElementById('save-file-name').value;
-    //var directory = document.getElementById('save-file-dir').value;
-    window.resolveLocalFileSystemURL("file:///storage/emulated/0/Files/", function(dir) {
-        console.log("got main dir",dir);
-        dir.getFile(filename + ".txt", {create:true}, function(file) {
-            console.log("got the file", file);
-            logOb = file;
-            var fileContent = myCodeMirror.getValue();
-            writeLog(fileContent);            
-        });
-    });
-});
 
 $('#find-all-modal-findall').on("click", function(){
         toast("Not Yet Supported!", 4000);
