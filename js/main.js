@@ -80,6 +80,7 @@ function changeSize() {
 
 
 $('#save-file-modal-yes').click(function(){
+    console.log("Save button Clicked")
     var filename = document.getElementById('save-file-name').value;
     var directory = document.getElementById('save-file-dir').value;
     window.resolveLocalFileSystemURL(fileSystem.root+directory, function(dir) {
