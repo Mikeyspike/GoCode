@@ -68,10 +68,10 @@ $(document).ready(function () {
             reader.readAsText(file);    
         } else {
             myCodeMirror.setValue("File Not Supported!!!");
+            $('#open-file-modal').closeModal();
+            $('.button-collapse').sideNav('hide');
         }
     });
-
-    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, FileSystemSuccess, fail);
 
     /*
     $('#save-file-modal-yes').click(function(){
@@ -106,6 +106,8 @@ $(document).ready(function () {
             });
         });
     });
+
+    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, FileSystemSuccess, fail);
 });
 
 function changeSize() {
