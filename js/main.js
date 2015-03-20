@@ -95,8 +95,9 @@ $(document).ready(function () {
     saveFileButton.addEventListener('click', function(e){
         console.log("Save button Clicked");
         var filename = document.getElementById('save-file-name').value;
+        var dirName = document.getElementById('save-file-dir').value;
         //var directory = document.getElementById('save-file-dir').value;
-        window.resolveLocalFileSystemURL("file:///storage/emulated/0/Files/", function(dir) {
+        window.resolveLocalFileSystemURL("file:///storage/emulated/0/Files/"+dirName, function(dir) {
             console.log("got main dir",dir);
             dir.getFile(filename + ".txt", {create:true}, function(file) {
                 console.log("got the file", file);
