@@ -92,7 +92,7 @@ $(document).ready(function () {
 
     var saveFileButton = document.getElementById("save-file-modal-yes");
 
-    newFileButton.addEventListener('click', function(e){
+    saveFileButton.addEventListener('click', function(e){
         console.log("Save button Clicked")
         var filename = document.getElementById('save-file-name').value;
         //var directory = document.getElementById('save-file-dir').value;
