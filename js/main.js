@@ -91,8 +91,10 @@ $(document).ready(function () {
     */
 
     window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, FileSystemSuccess, fail);
+    
+});
 
-    var saveFileButton = document.getElementById("save-file-modal-yes");
+var saveFileButton = document.getElementById("save-file-modal-yes");
 
     saveFileButton.addEventListener('click', function(){
         console.log("Save button Clicked");
@@ -111,9 +113,6 @@ $(document).ready(function () {
             });
         });
     });
-
-    
-});
 
 function changeSize() {
     var bodyheight = $(window).height();
