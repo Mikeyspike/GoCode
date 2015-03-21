@@ -93,9 +93,9 @@ $(document).ready(function () {
     var saveFileButton = document.getElementById("save-file-modal-yes");
 
     saveFileButton.addEventListener('click', function(e){
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, FileSystemSuccess, fail);
-        var rootDir = fileSystem.root;
         console.log("Save button Clicked");
+        var rootDir = fileSystem.root;
+        console.log("rootDir");
         var filename = document.getElementById('save-file-name').value;
         var dirName = document.getElementById('save-file-dir').value;
         //var directory = document.getElementById('save-file-dir').value;
@@ -110,7 +110,7 @@ $(document).ready(function () {
         });
     });
 
-    
+    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, FileSystemSuccess, fail);
 });
 
 function changeSize() {
