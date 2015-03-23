@@ -1,7 +1,4 @@
-spinnerplugin.show();
 $(document).ready(function () {
-    spinnerplugin.hide();
-
     var myCodeMirror = CodeMirror(document.getElementById("editor"), {
       value: "Welcome to GoCode!",
       mode:  "htmlmixed",
@@ -26,6 +23,26 @@ $(document).ready(function () {
         console.log("I wokred");
     });
     */
+
+    var saveFileButton = document.getElementById("save-file-modal-yes");
+
+    saveFileButton.addEventListener('click', function(e){
+        console.log("Save button Clicked");
+        var rootDir = fileSystem.root;
+        console.log("rootDir");
+        var filename = document.getElementById('save-file-name').value;
+        var dirName = document.getElementById('save-file-dir').value;
+        //var directory = document.getElementById('save-file-dir').value;
+        window.resolveLocalFileSystemURL(rootDir, function(dir) {
+            console.log("got main dir",dir);
+            dir.getFile(filename + ".txt", {create:true}, function(file) {
+                console.log("got the file", file);
+                logOb = file;
+                var fileContent = myCodeMirror.getValue();
+                writeLog(fileContent);            
+            });
+        });
+    });
 
     var newFileButton = document.getElementById('new-file-modal-yes');
 
@@ -73,7 +90,7 @@ $(document).ready(function () {
             myCodeMirror.setValue("File Not Supported!!!");
             $('#open-file-modal').closeModal();
             $('.button-collapse').sideNav('hide');
-        }
+        };
     });
 
     /*
@@ -93,27 +110,9 @@ $(document).ready(function () {
     });
     */
 
-    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, FileSystemSuccess, fail);
+    //window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, FileSystemSuccess, fail);
 
-    var saveFileButton = document.getElementById("save-file-modal-yes");
-
-    saveFileButton.addEventListener('click', function(){
-        console.log("Save button Clicked");
-        var rootDir = fileSystem.root;
-        console.log("rootDir");
-        var filename = document.getElementById('save-file-name').value;
-        var dirName = document.getElementById('save-file-dir').value;
-        //var directory = document.getElementById('save-file-dir').value;
-        window.resolveLocalFileSystemURL(rootDir, function(dir) {
-            console.log("got main dir",dir);
-            dir.getFile(filename + ".txt", {create:true}, function(file) {
-                console.log("got the file", file);
-                logOb = file;
-                var fileContent = myCodeMirror.getValue();
-                writeLog(fileContent);            
-            });
-        });
-    });
+    
 
     
 });
