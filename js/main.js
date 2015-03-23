@@ -25,9 +25,10 @@ $(document).ready(function () {
     */
 
     var saveFileButton = document.getElementById("save-file-modal-yes");
-    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, FileSystemSuccess, fail);
+
 
     saveFileButton.addEventListener('click', function(e){
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, FileSystemSuccess, fail);
         console.log("Save button Clicked");
         var rootDir = fileSystem.root;
         console.log("rootDir");
