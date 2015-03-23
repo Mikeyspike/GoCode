@@ -1,4 +1,7 @@
+spinnerplugin.show();
 $(document).ready(function () {
+    spinnerplugin.hide();
+
     var myCodeMirror = CodeMirror(document.getElementById("editor"), {
       value: "Welcome to GoCode!",
       mode:  "htmlmixed",
