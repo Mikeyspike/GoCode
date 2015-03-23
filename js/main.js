@@ -25,6 +25,7 @@ $(document).ready(function () {
     */
 
     var saveFileButton = document.getElementById("save-file-modal-yes");
+    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, FileSystemSuccess, fail);
 
     saveFileButton.addEventListener('click', function(e){
         console.log("Save button Clicked");
@@ -108,12 +109,7 @@ $(document).ready(function () {
             });
         });
     });
-    */
-
-    //window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, FileSystemSuccess, fail);
-
-    
-
+    */ 
     
 });
 
