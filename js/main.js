@@ -44,7 +44,9 @@ $(document).ready(function () {
                 var fileContent = myCodeMirror.getValue();
                 writeLog(fileContent);            
             });
-        }, fail());
+        }, function(e){
+            fail(e);
+        });
     });
 
     var newFileButton = document.getElementById('new-file-modal-yes');
