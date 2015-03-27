@@ -29,14 +29,14 @@ $(document).ready(function () {
 
     saveFileButton.addEventListener('click', function(e){
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, FileSystemSuccess, fail);
-        console.log(cordova.file.applicationStorageDirectory);
+        console.log("app Local Storage = " + cordova.file.applicationStorageDirectory);
         console.log("Save button Clicked");
-        var rootDir = "lolHey";
-        console.log(rootDir);
+        //var rootDir = "lolHey";
+        //console.log(rootDir);
         var filename = document.getElementById('save-file-name').value;
         var dirName = document.getElementById('save-file-dir').value;
         var saveDir = cordova.file.applicationStorageDirectory + "files/";
-        console.log(saveDir);
+        console.log("Saving to "+saveDir);
         //var directory = document.getElementById('save-file-dir').value;
         window.resolveLocalFileSystemURL(saveDir, function(dir) {
             console.log("got main dir",dir);
@@ -155,9 +155,9 @@ function writeLog(str) {
 }
 
 function FileSystemSuccess(fileSystem) {
-    console.log(fileSystem.name);
-    console.log(fileSystem.root.name);
-    console.log(fileSystem.root.fullPath);
+    //console.log(fileSystem.name);
+    //console.log(fileSystem.root.name);
+    //console.log(fileSystem.root.fullPath);
     console.log("Got the filesystem!");
 }
 
