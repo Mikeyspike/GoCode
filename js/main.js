@@ -29,6 +29,7 @@ $(document).ready(function () {
 
     saveFileButton.addEventListener('click', function(e){
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, FileSystemSuccess, fail);
+        console.log(cordova.file.applicationStorageDirectory);
         console.log("Save button Clicked");
         var rootDir = "lolHey";
         console.log(rootDir);
