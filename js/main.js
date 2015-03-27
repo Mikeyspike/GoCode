@@ -30,8 +30,8 @@ $(document).ready(function () {
     saveFileButton.addEventListener('click', function(e){
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, FileSystemSuccess, fail);
         console.log("Save button Clicked");
-        var rootDir = "lol";
-        console.log("rootDir");
+        var rootDir = "lolHey";
+        console.log(rootDir);
         var filename = document.getElementById('save-file-name').value;
         var dirName = document.getElementById('save-file-dir').value;
         //var directory = document.getElementById('save-file-dir').value;
@@ -150,6 +150,8 @@ function writeLog(str) {
 }
 
 function FileSystemSuccess(fileSystem) {
+    console.log(fileSystem.name);
+    console.log(fileSystem.root.name);
     console.log("Got the filesystem!");
 }
 
