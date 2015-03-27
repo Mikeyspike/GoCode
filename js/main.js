@@ -152,6 +152,7 @@ function writeLog(str) {
 function FileSystemSuccess(fileSystem) {
     console.log(fileSystem.name);
     console.log(fileSystem.root.name);
+    console.log(fileSystem.root.fullPath);
     console.log("Got the filesystem!");
 }
 
