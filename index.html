@@ -31,6 +31,7 @@
 	<link rel="stylesheet" href="css/materialize.min.css" />
 	<link rel="stylesheet" href="css/codemirror.css" />
 	<link rel="stylesheet" href="css/monokai.css" />
+	<link rel="stylesheet" href="css/dialog.css">
 	<link rel="stylesheet" href="css/index.css" />
 	<!-- JS -->
 	<script src="js/jquery-1.11.2.min.js"></script>
@@ -62,9 +63,9 @@
 
 	<footer data-role="footer" class="blue-grey darken-4">
 		<ul>
-			<li class="waves-effect waves-light"><a class="modal-trigger" href="#find-all-modal"><i class="mdi-action-search small"></i></a></li>
-			<li class="waves-effect waves-light"><a class="modal-trigger" href="#replace-modal"><i class="mdi-action-swap-vert small"></i></a></li>
-			<li class="waves-effect waves-light"><a><i class="mdi-editor-insert-comment small"></i></a></li>
+			<li class="waves-effect waves-light"><a id="find"><i class="mdi-action-search small"></i></a></li>
+			<li class="waves-effect waves-light"><a id="replace"><i class="mdi-action-swap-vert small"></i></a></li>
+			<li class="waves-effect waves-light"><a class="modal-trigger" href="#templates-modal"><i class="mdi-editor-insert-comment small"></i></a></li>
 			<li class="waves-effect waves-light"><a><i class="mdi-image-remove-red-eye small"></i></a></li>
 		</ul>
 	</footer>
@@ -163,16 +164,34 @@
     </div>
   </div>
 
-  <!-- Find All Modal -->
-  <div id="find-all-modal" class="modal">
+  <!-- Templates Modal -->
+  <div id="templates-modal" class="modal">
     <div class="modal-content">
-      <h4>Find</h4>
-      <p>Find in current document</p>
-      <input type="text" id="find-needle"/>
+      <h4>Templates</h4>
+      <p>Add a template into the document, or start a new file with one!</p>
+      <select id="templates-modal-select">
+      	<option value="<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>">HTML 5 Doc</option>
+      	<option value="function function_name (argument) {
+	// body...
+}">Javascript Function</option>
+				<option value="public function FunctionName($value='')
+{
+	# code...
+}">PHP Function</option>
+      </select>
     </div>
     <div class="modal-footer">
       <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close" id="find-all-modal-No">Close</a>
-      <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close" id="find-all-modal-findall">Find All</a>
+      <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close" id="templates-modal-add">Add at cursor</a>
+      <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close" id="templates-modal-new">Start with new file</a>
     </div>
   </div>
 
@@ -195,6 +214,9 @@
 <!-- JS -->
 <script src="js/materialize.min.js"></script>
 <script src="js/codemirror.js"></script>
+<script src="js/dialog.js"></script>
+<script src="js/search.js"></script>
+<script src="js/searchcursor.js"></script>
 <script src="js/css.js"></script>
 <script src="js/javascript.js"></script>
 <script src="js/xml.js"></script>

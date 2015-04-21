@@ -100,6 +100,33 @@ $(document).ready(function () {
         };
     });
 
+    $('#find').on("click", function(){
+        myCodeMirror.execCommand("find");
+    });
+    $('#replace').on("click", function(){
+        myCodeMirror.execCommand("replace");
+    });
+    /*
+    $('#templates-modal-add').on("click", function(){
+          myCodeMirror.replaceSelection("text");
+    });*/
+    var templateadd = document.getElementById('templates-modal-add');
+    var templatenew = document.getElementById('templates-modal-new');
+    var selectedTemplate = document.getElementById('templates-modal-select').value;
+
+    $('#templates-modal-select').on('change', function () {
+        selectedTemplate = $("#templates-modal-select").val();
+    });
+
+    templateadd.addEventListener('click', function(e){
+        myCodeMirror.replaceSelection(selectedTemplate);
+    });
+    templatenew.addEventListener('click', function(e){
+        myCodeMirror.setValue(selectedTemplate);
+    });
+
+
+
     /*
     $('#save-file-modal-yes').click(function(){
         console.log("Save button Clicked")
