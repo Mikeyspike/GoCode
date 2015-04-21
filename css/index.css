@@ -14,6 +14,9 @@ footer ul li{
 footer ul li a{
 	color: #fff;
 }
+#bottom-footer-links a{
+	color: #fff;
+}
 
 #editor{
     font-size: 16px;
