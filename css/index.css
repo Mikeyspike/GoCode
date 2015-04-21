@@ -8,7 +8,7 @@ footer ul{
 }
 footer ul li{
 	float: left;
-	width: 25%;
+	width: calc(100%/3);
 	text-align: center;
 }
 footer ul li a{
